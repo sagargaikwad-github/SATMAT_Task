@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "921573643776",
+    "project_id": "satmat-task",
+    "storage_bucket": "satmat-task.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921573643776:android:a308d1c4c89a9fd81eeae5",
+        "android_client_info": {
+          "package_name": "com.example.satmattask"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeUIggRYN2pWEERjWrNSe61UZDvgyMzzc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
