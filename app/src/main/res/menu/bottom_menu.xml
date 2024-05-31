@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_home"
+        android:icon="@drawable/ic_home_icon"
+        android:title="Home"></item>
+    <item
+        android:id="@+id/bottom_settlements"
+        android:icon="@drawable/ic_settlements_icon"
+        android:title="Settlements"></item>
+
+    <item
+        android:id="@+id/bottom_reports"
+        android:icon="@drawable/ic_reports_icon"
+        android:title="Reports"></item>
+
+    <item
+        android:id="@+id/bottom_menu"
+        android:icon="@drawable/ic_menu_icon"
+        android:title="Menu"></item>
+
+</menu>

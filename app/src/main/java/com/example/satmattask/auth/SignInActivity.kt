@@ -2,15 +2,14 @@ package com.example.satmattask.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.example.satmattask.DashboardActivity
-import com.example.satmattask.R
+import com.example.satmattask.view.activities.DashboardActivity
 import com.example.satmattask.databinding.ActivitySignInBinding
-import com.example.satmattask.databinding.ActivitySignUpBinding
+import com.example.satmattask.databinding.DialogForgotPasswordBinding
 import com.example.satmattask.model.Users
 import com.example.satmattask.utils.Utils
 import com.google.firebase.auth.FirebaseAuth
@@ -45,6 +44,29 @@ class SignInActivity : AppCompatActivity() {
                 startActivity(Intent(this@SignInActivity, SignUpActivity::class.java))
                 finish()
             }
+
+            //ForgotPassword BTN
+            signInForgotPassTV.setOnClickListener {
+                val dialog = DialogForgotPasswordBinding.inflate(LayoutInflater.from(this@SignInActivity))
+                var alertDialog = AlertDialog.Builder(this@SignInActivity)
+                    .setView(dialog.root)
+                    .create()
+                alertDialog.show()
+                dialog.forgotPasswordBTN.setOnClickListener {
+                    val email = dialog.forgotPasswordEmailET.text.toString()
+                    if(email.isNotEmpty())
+                    {
+                        resetPassword(email,alertDialog)
+                    }else{
+                        Utils.showToast(this@SignInActivity,"Email is required")
+                    }
+                }
+
+                dialog.forgotPasswordBackTV.setOnClickListener {
+                    alertDialog.dismiss()
+                }
+            }
+
         }
     }
 
@@ -54,34 +76,67 @@ class SignInActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             try {
-                val authResult = firebaseAuth.signInWithEmailAndPassword(email, password).await()
-                val currentUser = authResult.user!!.uid
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val currentUser = firebaseAuth.currentUser?.uid
+                            if (currentUser != null) {
+                                val isEmailVerified =
+                                    FirebaseAuth.getInstance().currentUser?.isEmailVerified
+                                if (isEmailVerified == true) {
+                                    FirebaseDatabase.getInstance().getReference("Users")
+                                        .child(currentUser)
+                                        .addListenerForSingleValueEvent(object :
+                                            ValueEventListener {
+                                            override fun onDataChange(snapshot: DataSnapshot) {
 
-                if (currentUser != null) {
-                    FirebaseDatabase.getInstance().getReference("Users").child(currentUser)
-                        .addListenerForSingleValueEvent(object : ValueEventListener {
-                            override fun onDataChange(snapshot: DataSnapshot) {
-                                val user = snapshot.getValue(Users::class.java)
+                                                startActivity(
+                                                    Intent(
+                                                        this@SignInActivity,
+                                                        DashboardActivity::class.java
+                                                    )
+                                                )
+                                                finish()
+                                            }
 
-                                startActivity(
-                                    Intent(
+                                            override fun onCancelled(error: DatabaseError) {
+                                                Utils.hideDialog()
+                                                Utils.showToast(this@SignInActivity, error.message)
+                                            }
+
+                                        })
+                                }
+                                else {
+                                    Utils.hideDialog()
+                                    Utils.showToast(
                                         this@SignInActivity,
-                                        DashboardActivity::class.java
+                                        "Please verify email first"
                                     )
-                                )
-                                finish()
+                                }
                             }
-
-                            override fun onCancelled(error: DatabaseError) {
-                                Utils.hideDialog()
-                                Utils.showToast(this@SignInActivity, error.message)
-                            }
-
-                        })
-                }
-            } catch (e: Exception) {
+                        } else {
+                            Utils.hideDialog()
+                            Utils.showToast(this@SignInActivity,task.exception.toString())
+                        }
+                    }
+            }catch (e: Exception)
+            {
                 Utils.hideDialog()
-                Utils.showToast(this@SignInActivity, e.message!!)
+                Utils.showToast(this@SignInActivity,"An error occured!!")
+            }
+        }
+
+    }
+
+    private fun resetPassword(email: String, alertDialog: AlertDialog) {
+        lifecycleScope.launch {
+            try {
+                FirebaseAuth.getInstance().sendPasswordResetEmail(email).await()
+                alertDialog.dismiss()
+                Utils.showToast(this@SignInActivity,"Please check your email and reset the password")
+            }catch (e: Exception)
+            {
+                Utils.showToast(this@SignInActivity,e.message.toString())
             }
         }
 

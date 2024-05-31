@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/drawer_profile"
+            android:icon="@drawable/ic_home_icon"
+            android:title="Profile"></item>
+        <item
+            android:id="@+id/drawer_kyc"
+            android:icon="@drawable/ic_settlements_icon"
+            android:title="KYC"></item>
+
+        <item
+            android:id="@+id/drawer_support"
+            android:icon="@drawable/ic_reports_icon"
+            android:title="Support"></item>
+
+        <item
+            android:id="@+id/drawer_settings"
+            android:icon="@drawable/ic_settngs"
+            android:title="Settings"></item>
+
+        <item
+            android:id="@+id/drawer_language"
+            android:icon="@drawable/ic_language"
+            android:title="My Language"></item>
+
+
+        <item
+            android:id="@+id/drawer_termsCondtions"
+            android:icon="@drawable/ic_terms"
+            android:title="Terms Conditions"></item>
+
+        <item
+            android:id="@+id/drawer_privacyPolicy"
+            android:icon="@drawable/ic_privacy"
+            android:title="Privacy Policy"></item>
+
+        <item
+            android:id="@+id/drawer_faq"
+            android:icon="@drawable/ic_faq"
+            android:title="FAQ"></item>
+
+        <item
+            android:id="@+id/drawer_share"
+            android:icon="@drawable/ic_share"
+            android:title="Share / Refer with Friend"></item>
+
+        <item
+            android:id="@+id/drawer_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Logout"></item>
+    </group>
+
+</menu>
