@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".view.fragments.PrepaidRechargeFragment">
+
+    <LinearLayout
+        android:id="@+id/postpaidRechargeImageLL"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/postPaidRechargeImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_mobile_recharge_icon"></ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/prepaidRechargeETLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postpaidRechargeImageLL">
+
+        <EditText
+            android:id="@+id/postpaidRechargePhoneTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:drawableStart="@drawable/ic_phone"
+            android:drawablePadding="10dp"
+            android:hint="Mobile Number"
+            android:inputType="number"
+            android:maxLength="10"
+            android:padding="20dp"
+            android:textColorHint="@color/colorGrey"
+            android:textSize="16sp"
+            android:textStyle="bold"></EditText>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:drawableStart="@drawable/ic_rupee_icon"
+            android:drawablePadding="10dp"
+            android:hint="Enter Amount"
+            android:id="@+id/postpaidRechargeAmountTV"
+            android:inputType="number"
+            android:padding="20dp"
+            android:textColorHint="@color/colorGrey"
+            android:textSize="16sp"
+            android:textStyle="bold"></EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/postPaidRechargeChooseOperator"
+            android:background="@drawable/textview_bg"
+            android:drawableEnd="@drawable/ic_dropdown_icon"
+            android:padding="10dp"
+            android:paddingStart="40dp"
+            android:text="Choose Opeartor"
+            android:textSize="16sp"
+            android:textStyle="bold"></TextView>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/postPaidBrowsePlanBTN"
+        android:background="@drawable/browse_plans_bg"
+        android:backgroundTint="@color/browsePlan_color"
+        android:paddingStart="10dp"
+        android:text="Browse Plans        "
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/prepaidRechargeETLL"></androidx.appcompat.widget.AppCompatButton>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:padding="15dp"
+        android:text="Recharge"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"></androidx.appcompat.widget.AppCompatButton>
+</androidx.constraintlayout.widget.ConstraintLayout>

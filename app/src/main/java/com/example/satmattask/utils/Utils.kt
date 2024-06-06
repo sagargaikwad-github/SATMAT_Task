@@ -7,12 +7,16 @@ import android.os.Build
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.satmattask.R
+import okhttp3.logging.HttpLoggingInterceptor
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object Utils {
 
     private var dialog: AlertDialog? = null
+    var authToken =
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTc1NjQzNjksImV4cCI6MTcxODg2MDM2OSwiaXNzIjoiaHR0cHM6XC9cL20tcGUuaW4iLCJkYXRhIjp7ImN1c19pZCI6bnVsbCwiY3VzX25hbWUiOm51bGwsImN1c19tb2JpbGUiOiI3MDMwNTEyMzQ2IiwiY3VzX3Bhc3N3b3JkIjoiOTQ3MTgifX0.gEq3VnWyB866w31vRu47x2U-I3DAf9IiiELQbMmxC9Y"
 
     fun showDialog(context: android.content.Context) {
         dialog =
@@ -30,9 +34,16 @@ object Utils {
     }
 
 
-    val BASE_URL = "https://supay.in/";
+   // val BASE_URL = "https://supay.in/";
+    val BASE_URL = "https://m-pe.in/";
+
+    val loggingInterceptor = HttpLoggingInterceptor().apply {
+        level = HttpLoggingInterceptor.Level.BODY
+    }
+    val httpClient = OkHttpClient.Builder().addInterceptor(loggingInterceptor).build()
 
     val retrofitInstance = Retrofit.Builder()
+        .client(httpClient)
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()

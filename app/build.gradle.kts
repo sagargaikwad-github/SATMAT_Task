@@ -77,6 +77,8 @@ dependencies {
     //Retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    //For Logs
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.1")
 
     val lifecycle_version = "2.8.1"
     // ViewModel
@@ -87,6 +89,8 @@ dependencies {
 
     //Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+
+
 
 
 }

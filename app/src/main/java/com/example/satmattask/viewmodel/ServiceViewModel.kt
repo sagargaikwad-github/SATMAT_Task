@@ -5,14 +5,26 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.satmattask.model.RechargeModel
+import com.example.satmattask.model.getOperators.GetOperators
+import com.example.satmattask.model.getRechargePlans.RechargePlans
 import com.example.satmattask.repository.ServiceRepository
-import com.example.satmattask.repository.Response
+import com.example.satmattask.repository.ResponseSealed
+import com.example.satmattask.utils.Utils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ServiceViewModel(private val serviceRepository: ServiceRepository) : ViewModel() {
-    val rechargeResponse: LiveData<Response<RechargeModel>>
+
+    private val _responseData = MutableLiveData<ResponseSealed<GetOperators>>()
+    private val _rechargePlansData = MutableLiveData<ResponseSealed<RechargePlans>>()
+    val rechargeResponse: LiveData<ResponseSealed<RechargeModel>>
         get() = serviceRepository.serviceLiveData
+
+    val getOperatorResponse: LiveData<ResponseSealed<GetOperators>>
+        get() = _responseData
+
+    val getRechargePlansResponse : LiveData<ResponseSealed<RechargePlans>>
+        get() = _rechargePlansData
 
     fun doRecharge(
         memberId: String,
@@ -24,4 +36,17 @@ class ServiceViewModel(private val serviceRepository: ServiceRepository) : ViewM
             serviceRepository.doRechargeRepository(memberId, apiPassword, apiPin, number)
         }
     }
+
+    fun getOperators() {
+        viewModelScope.launch(Dispatchers.IO) {
+            _responseData.postValue(serviceRepository.getOperators())
+        }
+    }
+
+    fun getRechargePlans(operator: String, phone: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            _rechargePlansData.postValue(serviceRepository.getRechargePlans(operator, phone))
+        }
+    }
+
 }

@@ -3,5 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="colorPrimary">#33236F</color>
+<!--    <color name="colorPrimary">#33236F</color>-->
+    <color name="colorPrimary">#1E3C70</color>
+    <color name="colorPrimaryStatusBar">#1E3C70</color>
+    <color name="colorGrey">#776F6F</color>
+    <color name="browsePlan_color">#018578</color>
 </resources>

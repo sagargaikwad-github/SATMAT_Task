@@ -1,5 +1,6 @@
 package com.example.satmattask.view.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,11 +13,12 @@ import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.satmattask.adapter.AllServicesAdapter
 import com.example.satmattask.api.ApiInterface
+import com.example.satmattask.auth.SignInActivity
 import com.example.satmattask.databinding.FragmentHomeBinding
 import com.example.satmattask.model.AllServices
 import com.example.satmattask.repository.ServiceRepository
-import com.example.satmattask.repository.Response
 import com.example.satmattask.utils.Utils
+import com.example.satmattask.view.activities.MobileRechargeActivity
 import com.example.satmattask.viewmodel.ServiceViewModel
 import com.example.satmattask.viewmodel.ServiceViewModelFactory
 
@@ -40,7 +42,7 @@ class HomeFragment : Fragment() {
 
         //Initializing Retrofit Interface and ViewModel.
         val ApiInterface = Utils.retrofitInstance.create(ApiInterface::class.java)
-        repository = ServiceRepository(ApiInterface,requireContext())
+        repository = ServiceRepository(ApiInterface, requireContext())
         viewModel =
             ViewModelProvider(
                 this,
@@ -364,18 +366,24 @@ class HomeFragment : Fragment() {
 
     private fun RecyclerItemClicked(itemId: String, msg: String) {
         if (itemId == "22") {
-            viewModel.doRecharge("9876543210", "1234", "1234", "998988200")
-            viewModel.rechargeResponse.observe(this, Observer {
-                when (it) {
-                    is Response.Success -> {
-                        Utils.showToast(requireContext(), "API Works fine")
-                    }
-
-                    is Response.Error -> {
-                        Utils.showToast(requireContext(), it.error?.MESSAGE.toString())
-                    }
-                }
-            })
+//            viewModel.doRecharge("9876543210", "1234", "1234", "998988200")
+//            viewModel.rechargeResponse.observe(this, Observer {
+//                when (it) {
+//                    is Response.Success -> {
+//                        Utils.showToast(requireContext(), "API Works fine")
+//                    }
+//
+//                    is Response.Error -> {
+//                        Utils.showToast(requireContext(), it.error?.MESSAGE.toString())
+//                    }
+//                }
+//            })
+            startActivity(
+                Intent(
+                    this.context,
+                    MobileRechargeActivity::class.java
+                )
+            )
         } else {
             Utils.showToast(activity?.applicationContext!!, msg + " Clicked")
         }
