@@ -17,6 +17,12 @@
         android:theme="@style/Theme.SATMATTask"
         tools:targetApi="31">
         <activity
+            android:name=".view.activities.BillPaymentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.activities.DthRechargeActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.activities.MobileRechargeActivity"
             android:exported="false" />
         <activity
@@ -24,7 +30,7 @@
             android:exported="true" />
         <activity
             android:name=".auth.SignInActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".auth.SignUpActivity"
             android:exported="false"

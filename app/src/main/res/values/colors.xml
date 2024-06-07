@@ -8,4 +8,15 @@
     <color name="colorPrimaryStatusBar">#1E3C70</color>
     <color name="colorGrey">#776F6F</color>
     <color name="browsePlan_color">#018578</color>
+
+    <color name="red_bg_color">#F44336</color>
+    <color name="brown_bg_color">#7B3F00</color>
+    <color name="lightgreen_bg_color">#4CAF50</color>
+    <color name="skyblue_bg_color">#2196F3</color>
+    <color name="green_bg_color">#8BC34A</color>
+    <color name="purple_bg_color">#9C27B0</color>
+    <color name="blue_bg_color">#3F51B5</color>
+    <color name="darkblue_bg_color">#009688</color>
+    <color name="darkgreen_bg_color">#016C05</color>
+    <color name="orange_bg_color">#FF5722</color>
 </resources>

@@ -7,7 +7,6 @@ import androidx.lifecycle.MutableLiveData
 import com.example.satmattask.api.ApiInterface
 import com.example.satmattask.model.RechargeModel
 import com.example.satmattask.model.getOperators.GetOperators
-import com.example.satmattask.model.getOperators.GetOperatorsRequest
 import com.example.satmattask.model.getOperators.Result
 import com.example.satmattask.model.getRechargePlans.PlanResults
 import com.example.satmattask.model.getRechargePlans.RechargePlans
@@ -47,12 +46,12 @@ class ServiceRepository(val apiService: ApiInterface, val context: Context) {
     }
 
 
-    suspend fun getOperators(): ResponseSealed<GetOperators> {
+    suspend fun getOperators(service: String): ResponseSealed<GetOperators> {
         if (Utils.isNetworkAvailable(context)) {
             try {
                 val params = mapOf(
                     "token" to Utils.authToken,
-                    "operator_type" to "mobile"
+                    "operator_type" to service
                 )
                 //val getOperatorRequest = GetOperatorsRequest(Utils.authToken, "mobile")
                 val request = apiService.getOperators(params)

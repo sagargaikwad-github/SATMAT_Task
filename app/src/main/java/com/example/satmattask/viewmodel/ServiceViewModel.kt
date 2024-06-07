@@ -9,7 +9,6 @@ import com.example.satmattask.model.getOperators.GetOperators
 import com.example.satmattask.model.getRechargePlans.RechargePlans
 import com.example.satmattask.repository.ServiceRepository
 import com.example.satmattask.repository.ResponseSealed
-import com.example.satmattask.utils.Utils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -37,9 +36,9 @@ class ServiceViewModel(private val serviceRepository: ServiceRepository) : ViewM
         }
     }
 
-    fun getOperators() {
+    fun getOperators(service : String) {
         viewModelScope.launch(Dispatchers.IO) {
-            _responseData.postValue(serviceRepository.getOperators())
+            _responseData.postValue(serviceRepository.getOperators(service))
         }
     }
 

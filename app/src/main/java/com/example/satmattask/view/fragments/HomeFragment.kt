@@ -18,6 +18,8 @@ import com.example.satmattask.databinding.FragmentHomeBinding
 import com.example.satmattask.model.AllServices
 import com.example.satmattask.repository.ServiceRepository
 import com.example.satmattask.utils.Utils
+import com.example.satmattask.view.activities.BillPaymentsActivity
+import com.example.satmattask.view.activities.DthRechargeActivity
 import com.example.satmattask.view.activities.MobileRechargeActivity
 import com.example.satmattask.viewmodel.ServiceViewModel
 import com.example.satmattask.viewmodel.ServiceViewModelFactory
@@ -382,6 +384,20 @@ class HomeFragment : Fragment() {
                 Intent(
                     this.context,
                     MobileRechargeActivity::class.java
+                )
+            )
+        } else if (itemId == "21") {
+            startActivity(
+                Intent(
+                    this.context,
+                    DthRechargeActivity::class.java
+                )
+            )
+        } else if (itemId == "30") {
+            startActivity(
+                Intent(
+                    this.context,
+                    BillPaymentsActivity::class.java
                 )
             )
         } else {

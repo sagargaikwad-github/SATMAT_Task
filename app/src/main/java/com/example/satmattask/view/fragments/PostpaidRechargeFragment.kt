@@ -95,7 +95,7 @@ class PostpaidRechargeFragment : Fragment() {
         binding.apply {
             postPaidRechargeChooseOperator.setOnClickListener {
                 Utils.showDialog(requireContext())
-                viewModel.getOperators()
+                viewModel.getOperators("mobile")
             }
 
             postPaidBrowsePlanBTN.setOnClickListener {

@@ -95,7 +95,7 @@ class PrepaidRechargeFragment : Fragment() {
         binding.apply {
             prepaidRechargeChooseOperator.setOnClickListener {
                 Utils.showDialog(requireContext())
-                viewModel.getOperators()
+                viewModel.getOperators("mobile")
             }
             prepaidBrowsePlanBTN.setOnClickListener {
                 val getPhone = prepaidRechargePhoneTV.text.toString()
