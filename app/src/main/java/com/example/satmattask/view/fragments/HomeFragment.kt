@@ -1,16 +1,19 @@
 package com.example.satmattask.view.fragments
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
+import com.example.satmattask.R
 import com.example.satmattask.adapter.AllServicesAdapter
 import com.example.satmattask.api.ApiInterface
 import com.example.satmattask.auth.SignInActivity
@@ -36,6 +39,8 @@ class HomeFragment : Fragment() {
 
     private lateinit var repository: ServiceRepository
     private lateinit var viewModel: ServiceViewModel
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,7 +56,11 @@ class HomeFragment : Fragment() {
                 ServiceViewModelFactory(repository)
             ).get(ServiceViewModel::class.java)
 
+        binding.toolbar.setNavigationIcon(R.drawable.ic_profile_icon)
+        binding.toolbar.inflateMenu(R.menu.toolbar_menu);
 
+
+        toolBarItemClick()
         imageSlider()
         prepareAdapters()
         setUpServices()
@@ -60,6 +69,25 @@ class HomeFragment : Fragment() {
         setUpTravelServices()
         setUpeGovernanceServices()
         return binding.root
+    }
+
+    private fun toolBarItemClick() {
+        binding.toolbar.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.toolbar_refresh -> {
+                    Utils.showToast(requireContext(), "Refresh")
+                }
+
+                R.id.toolbar_volume -> {
+                    Utils.showToast(requireContext(), "Volume")
+                }
+
+                R.id.toolbar_notifications -> {
+                    Utils.showToast(requireContext(), "Notifications")
+                }
+            }
+            false
+        }
     }
 
     private fun setUpeGovernanceServices() {

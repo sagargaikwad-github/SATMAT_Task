@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:padding="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/viewRecieptTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/TXNID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TXNID : "
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/rechargeHistoryItemTXNID_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="659957"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/TXNID"
+                app:layout_constraintTop_toTopOf="@+id/TXNID" />
+
+            <TextView
+                android:id="@+id/rechargeHistoryItemNumIDTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="659957"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/TXNID"
+                app:layout_constraintTop_toBottomOf="@+id/TXNID" />
+
+            <LinearLayout
+                android:id="@+id/rechargeHistoryItemCardLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rechargeHistoryItemNumIDTV">
+
+                <ImageView
+                    android:id="@+id/rechargeHistoryItemOperatorIV"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_debited_funds_icon" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/rechargeHistoryItemOperatorTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="BSNL"
+                        android:textColor="@color/colorGrey" />
+
+                    <TextView
+                        android:id="@+id/rechargeHistoryItemPhoneTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="3dp"
+                        android:text="9876543210"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rechargeHistoryItemBalanceLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rechargeHistoryItemCardLL">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="Opening\nBalance"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/fastServices_IV"
+                        app:layout_constraintStart_toStartOf="@+id/fastServices_IV"
+                        app:layout_constraintTop_toBottomOf="@+id/fastServices_IV"></TextView>
+
+                    <TextView
+                        android:id="@+id/rechargeHistoryOpeningBalanceTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="\u20B9 47"
+                        android:textColor="@color/brown_bg_color"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/fastServices_IV"
+                        app:layout_constraintStart_toStartOf="@+id/fastServices_IV"
+                        app:layout_constraintTop_toBottomOf="@+id/fastServices_IV"></TextView>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/view_grey_color"></View>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="Commission\nReceived"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/fastServices_IV"
+                        app:layout_constraintStart_toStartOf="@+id/fastServices_IV"
+                        app:layout_constraintTop_toBottomOf="@+id/fastServices_IV"></TextView>
+
+                    <TextView
+                        android:id="@+id/rechargeHistoryCommissionBalanceTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="\u20B9 47"
+                        android:textColor="@color/blue_bg_color"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/fastServices_IV"
+                        app:layout_constraintStart_toStartOf="@+id/fastServices_IV"
+                        app:layout_constraintTop_toBottomOf="@+id/fastServices_IV"></TextView>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/view_grey_color"></View>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="Opening\nBalance"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/fastServices_IV"
+                        app:layout_constraintStart_toStartOf="@+id/fastServices_IV"
+                        app:layout_constraintTop_toBottomOf="@+id/fastServices_IV"></TextView>
+
+                    <TextView
+                        android:id="@+id/rechargeHistoryClosingBalanceTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="\u20B9 47"
+                        android:textColor="@color/darkgreen_bg_color"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/fastServices_IV"
+                        app:layout_constraintStart_toStartOf="@+id/fastServices_IV"
+                        app:layout_constraintTop_toBottomOf="@+id/fastServices_IV"></TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/viewRecieptTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/view_receipt"
+            android:textColor="@color/colorGrey"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <LinearLayout
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:background="@drawable/recharge_history_green_bg"
+            android:gravity="end"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/rechargeHistoryDateTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:text="2023-10-17 13:04:42"
+                android:textColor="@color/white"
+                android:textSize="13sp"></TextView>
+
+            <TextView
+                android:id="@+id/rechargeHistorySuccessTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingRight="10dp"
+                android:text="SUCCESS"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/rechargeHistoryPriceTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingRight="10dp"
+                android:text="\u20B9 10"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/dispute_red_bg"
+                android:padding="5dp"
+                android:paddingRight="10dp"
+                android:text=" Dispute  "
+                android:textColor="@color/white"
+                android:textSize="12sp"></TextView>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
