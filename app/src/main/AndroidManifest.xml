@@ -20,9 +20,6 @@
             android:name=".view.activities.AllReportsActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activities.testACTIVITY"
-            android:exported="false" />
-        <activity
             android:name=".view.activities.BillPaymentsActivity"
             android:exported="false" />
         <activity
