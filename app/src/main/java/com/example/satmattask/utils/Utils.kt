@@ -92,6 +92,7 @@ object Utils {
 
         val datePickerDialog = DatePickerDialog(
             context,
+            R.style.CustomDatePickerDialogTheme,
             { _, year: Int, monthOfYear: Int, dayOfMonth: Int ->
                 val month = if (dayOfMonth < 10) "0$dayOfMonth" else "$dayOfMonth"
                 val monthOfYear =

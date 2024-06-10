@@ -24,6 +24,7 @@ import com.example.satmattask.utils.Utils
 import com.example.satmattask.view.activities.BillPaymentsActivity
 import com.example.satmattask.view.activities.DthRechargeActivity
 import com.example.satmattask.view.activities.MobileRechargeActivity
+import com.example.satmattask.view.activities.TopUpActivity
 import com.example.satmattask.viewmodel.ServiceViewModel
 import com.example.satmattask.viewmodel.ServiceViewModelFactory
 
@@ -395,42 +396,80 @@ class HomeFragment : Fragment() {
     }
 
     private fun RecyclerItemClicked(itemId: String, msg: String) {
-        if (itemId == "22") {
-//            viewModel.doRecharge("9876543210", "1234", "1234", "998988200")
-//            viewModel.rechargeResponse.observe(this, Observer {
-//                when (it) {
-//                    is Response.Success -> {
-//                        Utils.showToast(requireContext(), "API Works fine")
-//                    }
-//
-//                    is Response.Error -> {
-//                        Utils.showToast(requireContext(), it.error?.MESSAGE.toString())
-//                    }
-//                }
-//            })
-            startActivity(
-                Intent(
-                    this.context,
-                    MobileRechargeActivity::class.java
+        when (itemId) {
+            "22" ->
+                startActivity(
+                    Intent(
+                        this.context,
+                        MobileRechargeActivity::class.java
+                    )
                 )
-            )
-        } else if (itemId == "21") {
-            startActivity(
-                Intent(
-                    this.context,
-                    DthRechargeActivity::class.java
+
+            "21" ->
+                startActivity(
+                    Intent(
+                        this.context,
+                        DthRechargeActivity::class.java
+                    )
                 )
-            )
-        } else if (itemId == "30") {
-            startActivity(
-                Intent(
-                    this.context,
-                    BillPaymentsActivity::class.java
+
+            "30" ->
+                startActivity(
+                    Intent(
+                        this.context,
+                        BillPaymentsActivity::class.java
+                    )
                 )
-            )
-        } else {
-            Utils.showToast(activity?.applicationContext!!, msg + " Clicked")
+
+            "1" ->
+                startActivity(
+                    Intent(
+                        this.context,
+                        TopUpActivity::class.java
+                    )
+                )
+
+            else ->
+                Utils.showToast(activity?.applicationContext!!, msg + " Clicked")
         }
+
+
+//        if (itemId == "22") {
+////            viewModel.doRecharge("9876543210", "1234", "1234", "998988200")
+////            viewModel.rechargeResponse.observe(this, Observer {
+////                when (it) {
+////                    is Response.Success -> {
+////                        Utils.showToast(requireContext(), "API Works fine")
+////                    }
+////
+////                    is Response.Error -> {
+////                        Utils.showToast(requireContext(), it.error?.MESSAGE.toString())
+////                    }
+////                }
+////            })
+//            startActivity(
+//                Intent(
+//                    this.context,
+//                    MobileRechargeActivity::class.java
+//                )
+//            )
+//        } else if (itemId == "21") {
+//            startActivity(
+//                Intent(
+//                    this.context,
+//                    DthRechargeActivity::class.java
+//                )
+//            )
+//        } else if (itemId == "30") {
+//            startActivity(
+//                Intent(
+//                    this.context,
+//                    BillPaymentsActivity::class.java
+//                )
+//            )
+//        } else {
+//            Utils.showToast(activity?.applicationContext!!, msg + " Clicked")
+//        }
     }
 
 }

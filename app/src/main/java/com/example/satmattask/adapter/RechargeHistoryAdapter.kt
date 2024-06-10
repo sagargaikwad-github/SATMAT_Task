@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.satmattask.databinding.RechargeHistoryItemBinding
-import com.example.satmattask.model.rechargeHistory.RechargeHistory
+import com.example.satmattask.model.reports.RechargeHistory
 import com.example.satmattask.utils.Utils
 import java.util.Date
 
@@ -85,8 +85,4 @@ class RechargeHistoryAdapter : RecyclerView.Adapter<RechargeHistoryAdapter.holde
         differ.submitList(data)
     }
 
-    fun clearData() {
-        val emptyList = emptyList<RechargeHistory>()
-        setData(emptyList.toMutableList())
-    }
 }

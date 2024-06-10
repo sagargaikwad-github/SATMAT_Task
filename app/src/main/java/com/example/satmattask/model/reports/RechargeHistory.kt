@@ -1,4 +1,4 @@
-package com.example.satmattask.model.rechargeHistory
+package com.example.satmattask.model.reports
 
 data class RechargeHistory(
     val txnID: String,

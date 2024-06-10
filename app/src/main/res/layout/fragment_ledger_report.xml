@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragments.LedgerReportFragment">
+
+    <LinearLayout
+        android:id="@+id/ledgerReportLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+
+        android:weightSum="5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="From :" />
+
+        <TextView
+            android:id="@+id/ledgerReportFromDateTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/textview_box_primary_bg"
+            android:drawableEnd="@drawable/ic_arrow_down"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="01/03/2024" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="To :" />
+
+        <TextView
+            android:id="@+id/ledgerReportToDateTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/textview_box_primary_bg"
+            android:drawableEnd="@drawable/ic_arrow_down"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="08/06/2024" />
+
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Material3.Button.IconButton.Filled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:id="@+id/ledgerReportGoBTN"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="     GO     "
+            android:textSize="14sp"
+            app:cornerRadius="20dp" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ledgerReportRV"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:listitem="@layout/ledger_report_rv_item"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ledgerReportLL" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

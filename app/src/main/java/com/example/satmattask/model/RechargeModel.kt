@@ -1,6 +1,5 @@
 package com.example.satmattask.model
 
-import com.example.satmattask.repository.Response
 
 data class RechargeModel(
     val ERROR: Int?=null,

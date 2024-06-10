@@ -14,7 +14,7 @@ import com.example.satmattask.Interface.OnDateSelectedListener
 import com.example.satmattask.R
 import com.example.satmattask.adapter.RechargeHistoryAdapter
 import com.example.satmattask.databinding.FragmentRechargeHistoryBinding
-import com.example.satmattask.model.rechargeHistory.RechargeHistory
+import com.example.satmattask.model.reports.RechargeHistory
 import com.example.satmattask.utils.Utils
 import java.text.SimpleDateFormat
 import java.util.Collections

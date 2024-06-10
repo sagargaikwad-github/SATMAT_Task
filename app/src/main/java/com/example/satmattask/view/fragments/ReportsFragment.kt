@@ -13,6 +13,7 @@ import com.example.satmattask.R
 import com.example.satmattask.databinding.FragmentReportsBinding
 import com.example.satmattask.view.activities.AllReportsActivity
 import com.example.satmattask.view.activities.MobileRechargeActivity
+import com.example.satmattask.view.activities.OtherReportsActivity
 
 
 class ReportsFragment : Fragment() {
@@ -36,6 +37,15 @@ class ReportsFragment : Fragment() {
                     Intent(
                         requireContext(),
                         AllReportsActivity::class.java
+                    )
+                )
+            }
+
+            reportsLedegers.setOnClickListener {
+                startActivity(
+                    Intent(
+                        requireContext(),
+                        OtherReportsActivity::class.java
                     )
                 )
             }

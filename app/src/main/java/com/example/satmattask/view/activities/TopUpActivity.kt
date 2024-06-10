@@ -1,10 +1,7 @@
 package com.example.satmattask.view.activities
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.Window
 import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
@@ -12,44 +9,28 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.satmattask.R
-import com.example.satmattask.auth.SignInActivity
-import com.example.satmattask.auth.SignUpActivity
-import com.example.satmattask.utils.Utils
-import com.google.firebase.auth.FirebaseAuth
+import com.example.satmattask.databinding.ActivityTopUpBinding
 
-
-class SplashScreenActivity : AppCompatActivity() {
-    private var SPLASH_SCREEN_DELAY: Long = 3000
+class TopUpActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityTopUpBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        binding = ActivityTopUpBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         statusBarColor()
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            val currentUser = FirebaseAuth.getInstance().currentUser?.uid
-            if (currentUser != null) {
-                val isEmailVerified = FirebaseAuth.getInstance().currentUser?.isEmailVerified
-                if (isEmailVerified == true) {
-                    startActivity(Intent(this@SplashScreenActivity, DashboardActivity::class.java))
-                    finish()
-                } else {
-                    startActivity(Intent(this@SplashScreenActivity, SignInActivity::class.java))
-                    finish()
-                }
-            } else {
-                startActivity(Intent(this@SplashScreenActivity, SignInActivity::class.java))
+        binding.apply {
+            topUpToolbar.setNavigationOnClickListener {
                 finish()
             }
-
-        }, SPLASH_SCREEN_DELAY)
+        }
     }
 
     fun statusBarColor() {

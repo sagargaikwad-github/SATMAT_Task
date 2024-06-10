@@ -7,4 +7,12 @@
 
     </style>
 
+    <style name="CustomDatePickerDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog">
+        <item name="colorAccent">@color/colorPrimary</item> <!--Header Color-->
+        <item name="android:windowBackground">@color/white</item> <!--Header dates bg Color-->
+        <item name="android:colorControlActivated">@color/colorPrimary</item> <!--selected date bg Color-->
+        <item name="android:textColorPrimary">@color/black</item> <!--Non selected date color's-->
+        <item name="android:textColorSecondary">@color/black</item> <!--Day S,M.Tuesday... color-->
+    </style>
+
 </resources>
