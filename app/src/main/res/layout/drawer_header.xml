@@ -5,17 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/drawerLayoutProfileIV"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/splash_icon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundedImage" />
+
+    <ImageView
+        android:id="@+id/changeProfile"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/red_text_box"
+        android:padding="2dp"
+        android:src="@drawable/ic_camera_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/drawerLayoutProfileIV"
+        app:layout_constraintEnd_toEndOf="@+id/drawerLayoutProfileIV" />
+
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
