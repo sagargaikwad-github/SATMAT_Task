@@ -93,6 +93,9 @@ dependencies {
     //SwipeRefreshLayout
     implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
+    //ZaakPay
+    implementation ("com.github.Mobikwik:Android-SDK:4.5")
+
 
 
 }

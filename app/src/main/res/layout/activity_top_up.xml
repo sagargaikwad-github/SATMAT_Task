@@ -100,6 +100,7 @@
             android:orientation="vertical">
 
             <EditText
+                android:id="@+id/topUpEnterAmount"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
@@ -196,6 +197,7 @@
             android:background="@color/colorGrey" />
 
         <LinearLayout
+            android:id="@+id/topUpZaakPay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">

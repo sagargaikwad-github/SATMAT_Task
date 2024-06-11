@@ -18,6 +18,9 @@ dependencyResolutionManagement {
         mavenCentral()
         maven {
             url = uri("https://jitpack.io")
+            credentials {
+                username = "jp_nvgg9iebmirqko7uo25n0ssc9b"
+            }
         }
     }
 }
