@@ -142,24 +142,28 @@
             android:padding="14dp">
 
             <ImageView
+                android:id="@+id/upiIntent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:src="@drawable/upi_image" />
 
             <ImageView
+                android:id="@+id/gPayIntent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:src="@drawable/googlepay_image" />
 
             <ImageView
+                android:id="@+id/phonePayIntent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:src="@drawable/phonepe_image" />
 
             <ImageView
+                android:id="@+id/paytmIntent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

@@ -1,14 +1,11 @@
 package com.example.satmattask.view.fragments
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.denzcoskun.imageslider.constants.ScaleTypes
@@ -16,7 +13,6 @@ import com.denzcoskun.imageslider.models.SlideModel
 import com.example.satmattask.R
 import com.example.satmattask.adapter.AllServicesAdapter
 import com.example.satmattask.api.ApiInterface
-import com.example.satmattask.auth.SignInActivity
 import com.example.satmattask.databinding.FragmentHomeBinding
 import com.example.satmattask.model.AllServices
 import com.example.satmattask.repository.ServiceRepository
@@ -428,6 +424,14 @@ class HomeFragment : Fragment() {
                         TopUpActivity::class.java
                     )
                 )
+
+            "18" ->{}
+//                startActivity(
+//                    Intent(
+//                        this.context,
+//                        MicroAtmActivity::class.java
+//                    )
+//                )
 
             else ->
                 Utils.showToast(activity?.applicationContext!!, msg + " Clicked")

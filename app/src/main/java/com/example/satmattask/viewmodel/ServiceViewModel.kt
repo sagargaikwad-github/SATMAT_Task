@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.satmattask.model.RechargeModel
 import com.example.satmattask.model.getOperators.GetOperators
 import com.example.satmattask.model.getRechargePlans.RechargePlans
+import com.example.satmattask.model.zaakPay.UpiIntentModel
 import com.example.satmattask.repository.ServiceRepository
 import com.example.satmattask.repository.ResponseSealed
 import kotlinx.coroutines.Dispatchers
@@ -22,7 +23,7 @@ class ServiceViewModel(private val serviceRepository: ServiceRepository) : ViewM
     val getOperatorResponse: LiveData<ResponseSealed<GetOperators>>
         get() = _responseData
 
-    val getRechargePlansResponse : LiveData<ResponseSealed<RechargePlans>>
+    val getRechargePlansResponse: LiveData<ResponseSealed<RechargePlans>>
         get() = _rechargePlansData
 
     fun doRecharge(
@@ -36,7 +37,7 @@ class ServiceViewModel(private val serviceRepository: ServiceRepository) : ViewM
         }
     }
 
-    fun getOperators(service : String) {
+    fun getOperators(service: String) {
         viewModelScope.launch(Dispatchers.IO) {
             _responseData.postValue(serviceRepository.getOperators(service))
         }
@@ -47,5 +48,8 @@ class ServiceViewModel(private val serviceRepository: ServiceRepository) : ViewM
             _rechargePlansData.postValue(serviceRepository.getRechargePlans(operator, phone))
         }
     }
+
+
+
 
 }

@@ -5,6 +5,7 @@ import com.example.satmattask.model.getOperators.GetOperators
 import com.example.satmattask.model.getOperators.GetOperatorsRequest
 import com.example.satmattask.model.getRechargePlans.PlanResults
 import com.example.satmattask.model.getRechargePlans.RechargePlans
+import com.example.satmattask.model.zaakPay.UpiIntentModel
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.FieldMap
@@ -31,9 +32,10 @@ interface ApiInterface {
 
     @FormUrlEncoded
     @POST("/index.php/appapi/getOperators")
-    suspend fun getOperators(@FieldMap params: Map<String, String>) : Response<GetOperators>
+    suspend fun getOperators(@FieldMap params: Map<String, String>): Response<GetOperators>
 
     @FormUrlEncoded
     @POST("/index.php/appapi/roffer")
-    suspend fun getRechargePlans(@FieldMap params: Map<String, String>) : Response<RechargePlans>
+    suspend fun getRechargePlans(@FieldMap params: Map<String, String>): Response<RechargePlans>
+
 }

@@ -10,6 +10,7 @@ import com.example.satmattask.model.getOperators.GetOperators
 import com.example.satmattask.model.getOperators.Result
 import com.example.satmattask.model.getRechargePlans.PlanResults
 import com.example.satmattask.model.getRechargePlans.RechargePlans
+import com.example.satmattask.model.zaakPay.UpiIntentModel
 import com.example.satmattask.utils.Utils
 
 class ServiceRepository(val apiService: ApiInterface, val context: Context) {
@@ -99,4 +100,6 @@ class ServiceRepository(val apiService: ApiInterface, val context: Context) {
             return ResponseSealed.Error(response)
         }
     }
+
+
 }

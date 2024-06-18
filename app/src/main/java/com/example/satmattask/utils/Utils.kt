@@ -54,6 +54,12 @@ object Utils {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
+    val externalRetrofitInstance = Retrofit.Builder()
+        .client(httpClient)
+        .baseUrl("https://api.zaakpay.com/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
 
     fun isNetworkAvailable(context: Context): Boolean {
         val connectivityManager =

@@ -32,8 +32,12 @@ class Zaakpay(val context: Context) {
 //        const val SECRET_KEY = "0678056d96914a8583fb518caf42828a"
 
         //Doc 2
-        const val MERCHANT_IDENTIFIER = "fb2016ffd3a64b2994a6289dc2b671a4"
-        const val SECRET_KEY = "0678056d96914a8583fb518caf42828a"
+//        const val MERCHANT_IDENTIFIER = "fb2016ffd3a64b2994a6289dc2b671a4"
+//        const val SECRET_KEY = "0678056d96914a8583fb518caf42828a"
+
+        //Ajinkya
+        const val MERCHANT_IDENTIFIER = "5a06ad972155459eb8e37feec5dfef18"
+        const val SECRET_KEY = "758e670ea3714084a80826a63015ab4c"
 
     }
 
@@ -61,12 +65,12 @@ class Zaakpay(val context: Context) {
             .withOrderId("1011") // String
             .withUserEmail("sagargaikwad2017id@gmail.com") // String
             .withReturnUrl("https://beta.zaakpay.com/testmerchant/sdkresponse") // Url on which the txn response will be posted (String)
-           // .withMerchantIconUrl("https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png") // Merchant Icon to be displayed in the SDK (String)
+            // .withMerchantIconUrl("https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png") // Merchant Icon to be displayed in the SDK (String)
             .withMerchantIconUrl("https://firebasestorage.googleapis.com/v0/b/satmat-task.appspot.com/o/App_related_icons%2Fpay%20(1).png?alt=media&token=67af93dc-b745-4ad9-b0be-3720780cf047") // Merchant Icon to be displayed in the SDK (String)
             .withMerchantName("SATMAT") // String
             .withMerchantId(MERCHANT_IDENTIFIER) // String
             .withUserPhoneNumber("7821849722") //String
-            .withEnvironment(Enums.Environment.TESTING)
+            .withEnvironment(Enums.Environment.PRODUCTION)
             .build()
     }
 
