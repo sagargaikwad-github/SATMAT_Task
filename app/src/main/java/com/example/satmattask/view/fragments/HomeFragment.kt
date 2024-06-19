@@ -19,6 +19,7 @@ import com.example.satmattask.repository.ServiceRepository
 import com.example.satmattask.utils.Utils
 import com.example.satmattask.view.activities.BillPaymentsActivity
 import com.example.satmattask.view.activities.DthRechargeActivity
+import com.example.satmattask.view.activities.MicroATMActivity
 import com.example.satmattask.view.activities.MobileRechargeActivity
 import com.example.satmattask.view.activities.TopUpActivity
 import com.example.satmattask.viewmodel.ServiceViewModel
@@ -425,13 +426,12 @@ class HomeFragment : Fragment() {
                     )
                 )
 
-            "18" ->{}
-//                startActivity(
-//                    Intent(
-//                        this.context,
-//                        MicroAtmActivity::class.java
-//                    )
-//                )
+            "18" ->
+                startActivity(
+                    Intent(
+                        this.context, MicroATMActivity::class.java
+                    )
+                )
 
             else ->
                 Utils.showToast(activity?.applicationContext!!, msg + " Clicked")

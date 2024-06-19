@@ -14,6 +14,7 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+        multiDexEnabled=true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -96,7 +97,12 @@ dependencies {
     implementation ("com.github.Mobikwik:Android-SDK:4.5")
 
 
-
+    //MATM Related
+    implementation(files("libs/FINO_PS_MATM.aar"))
+    implementation(files("libs/PS_MATM_2.0.2.aar"))
+    implementation ("com.android.support:multidex:1.0.3")
+    implementation ("de.greenrobot:greendao:2.1.0")
+    implementation ("org.greenrobot:eventbus:3.2.0")
 
 
 }
